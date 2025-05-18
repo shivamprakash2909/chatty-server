@@ -1,0 +1,8 @@
+Vercel Deployment process
+Add vercel.json file
+npm run build (For TS API only)
+npm install -g vercel
+vercel (to deploy on preview env)
+vercel --prod (to deploy on prod env)
+Link Git repo from Vercel UI (not mand)
+Add env from Vercel UI
