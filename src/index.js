@@ -19,9 +19,11 @@ app.use(
       process.env.NODE_ENV === "production"
         ? process.env.ORIGIN_PROD
         : process.env.ORIGIN,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD"],
     credentials: true,
   })
 );
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
 app.use("/api", healthCheckRouter);
 app.use("/api/auth", authRoutes);
