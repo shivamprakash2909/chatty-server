@@ -25,10 +25,12 @@ app.use(
 );
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
+connectDB();
+
 app.use("/api", healthCheckRouter);
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
+
 server.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
-  connectDB();
 });
