@@ -5,10 +5,11 @@ export const generateToken = (userId, res) => {
     expiresIn: "7d",
   });
   res.cookie("jwt", token, {
-    maxAge: 7 * 24 * 60 * 60 * 1000, //in miliseconds
+    path: "/",
     httpOnly: true,
-    sameSite: "strict",
     secure: process.env.NODE_ENV !== "devlopment",
+    sameSite: "none", // lax- if API and UI are deployed under same domain, strict- if both are on same server
+    maxAge: 7 * 24 * 60 * 60 * 1000, //in miliseconds
   });
   return token;
 };
